@@ -1,0 +1,157 @@
+.container{
+  padding: 0 0.8rem;
+  margin: 0 auto;
+  max-width: 80%;
+  min-width: $min-width;
+}
+/**
+ * Calculate column size percentage
+ */
+@function get-col-percent($column-num) {
+
+  @return $column-num / $fg-columns * 100%;
+
+}
+
+/**
+ * Spacing mixin to create uniform margin/padding
+ */
+@mixin spacing( $value, $type: margin, $orientation: vertical ) {
+  @if $orientation == vertical {
+    #{ $type }-top: $value;
+    #{ $type }-bottom: $value;
+  } @else {
+    #{ $type }-left: $value;
+    #{ $type }-right: $value;
+  }
+}
+
+@mixin grid-visibility ($namespace) {
+  .#{ $fg-class-col }-#{$namespace}-hidden {
+    display:none;
+  }
+  .#{ $fg-class-col }-#{$namespace}-show {
+    display:flex;
+  }
+}
+
+@mixin grid-order ( $namespace ) {
+  .#{ $fg-class-col }-#{$namespace}-first {
+    order: -1;
+  }
+  .#{ $fg-class-col }-#{$namespace}-order-reset {
+    order: 0;
+  }
+}
+
+/**
+ * Row wrapper class, flex box parent.
+ */
+.#{ $fg-class-row } {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  @include spacing( ( -$fg-gutter ), margin, horizontal );
+}
+
+
+%#{ $fg-class-col } {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 0;
+  min-height: 1px;
+  @include spacing( ( $fg-gutter ), padding, horizontal );
+}
+
+%#{ $fg-class-col }-flex {
+  @extend %#{ $fg-class-col };
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+}
+
+
+/**
+ * Generate a set of grid column classes using a namespace
+ *
+ * .#{ $fg-class-col }-[namespace] for intelligent column division
+ * .#{ $fg-class-col }-[namespace]-[number] for a column that covers a specific number of columns (e.g. 1-12 by default)
+ * .#{ $fg-class-off }-[namespace]-[number] for pushing a col a specific number of columns (e.g. 1-11 by default)
+ * .#{ $fg-class-off }-[namespace]-reset for resetting a col's offset for that and larger namespaces
+ */
+
+@mixin grid-base( $namespace ) {
+  .#{ $fg-class-col }-#{$namespace} {
+    @extend %#{ $fg-class-col }-flex;
+  }
+
+  @for $i from 1 through $fg-columns {
+    .#{ $fg-class-col }-#{$namespace}-#{$i} {
+      @extend %#{ $fg-class-col };
+    }
+  }
+}
+
+@mixin grid-sizes( $namespace ) {
+
+  // Run the loop for as many columns as speficied
+  @for $i from 1 through $fg-columns {
+    .#{ $fg-class-col }-#{$namespace}-#{$i} {
+      flex-basis: get-col-percent($i);
+      max-width:  get-col-percent($i);
+    }
+  }
+
+  @for $i from 1 through $fg-columns {
+
+    // Don't include the .off class for the last column
+    @if ( $i != $fg-columns ) {
+      .#{ $fg-class-off }-#{$namespace}-#{$i} {
+        margin-left: get-col-percent($i);
+      }
+    }
+
+  }
+
+  .#{ $fg-class-off }-#{$namespace}-reset {
+    margin-left: 0;
+  }
+
+}
+
+
+/**
+ * Build the grid in two steps, to help minimize file size
+ * Step 1, for each namespace, create the grid-base
+ * Step 2, for each namespace, wrap the col width/offset measurements in their breakpoint media query
+ */
+@each $val in $fg-breakpoints {
+
+  $namespace: nth($val, 1);
+  @include grid-base( $namespace );
+
+}
+
+@each $val in $fg-breakpoints {
+  @if length($val) == 1 {
+
+    $namespace: nth($val, 1);
+    @include grid-sizes( $namespace );
+    @include grid-visibility( $namespace );
+    @include grid-order( $namespace );
+
+  } @else {
+
+    $namespace: nth($val, 1);
+    $size: nth($val, 2);
+
+    @media only screen and (min-width: #{$size}) {
+      @include grid-sizes( $namespace );
+      @include grid-visibility( $namespace );
+      @include grid-order( $namespace );
+    }
+  }
+}

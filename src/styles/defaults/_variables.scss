@@ -1,0 +1,125 @@
+// ============================================
+// Grid
+/*$screen-xs: 0;
+$screen-sm: 320px;
+$screen-md: 768px;
+$screen-lg: 1024px;*/
+
+$min-width:                      38em;
+
+$screen-xs:                       0;
+$screen-sm:                      39em;
+$screen-md:                      55em;
+$screen-lg:                        73em;
+
+$fg-columns:                     12 !default;
+$fg-gutter:                        0.5rem !default;
+
+$fg-class-row:                   'row' !default;
+$fg-class-col:                    'col' !default;
+$fg-class-off:                    'off' !default;
+
+$fg-breakpoints: (
+  (xs),
+  (sm, $screen-sm),
+  (md, $screen-md),
+  (lg, $screen-lg)
+) !default;
+
+$breakpoints: (
+  xs : $screen-xs,
+  sm : $screen-sm,
+  md : $screen-md,
+  lg : $screen-lg,
+) !default;
+// ============================================
+// Colors
+$yellow:                              #F5D46C;
+$yellow-light:                      #F9ED7D;
+$blue-dark: 										    #2C3E50;
+$blue-light: 											   #34495E;
+$violet: 												       #8E44AD;
+$gray-light: 											   #ECF0F1;
+$gray-dark:												  #BDC3C7;
+
+$font-color-base: 								#000;
+$heading-font-color:						$font-color-base;
+// ============================================
+// Fonts
+$fontPath:												      "../fonts/";
+$OpenSansReg: 								     "OpenSansRegular", Arial, Helvetica, sans-serif;
+$BebasNeueReg: 									  "BebasNeueRegular", Arial, Helvetica, sans-serif;
+
+// ============================================
+// Text
+
+$font-weight-base: 						        normal;
+$font-size-base: 							          14px;
+$line-height-base: 							       1.5;
+$font-family-base: 						         $OpenSansReg;
+
+// Headings
+$heading-font-weight:						    normal;
+$h1-font-size: 								           1.5em;
+$h2-font-size: 								           1.3em;
+$h3-font-size: 								           1.1em;
+$h4-font-size: 								           1em;
+$h1-line-height: 							          24px;
+$h2-line-height:                        20px;
+$h3-line-height: 							          18px;
+$h4-line-height:                        16px;
+$heading-line-height:                1.2;
+$heading-font-family:						     $BebasNeueReg;
+
+// Links
+$link-font-family: 							        $BebasNeueReg;
+$link-font-size: 							           $font-size-base;
+$link-font-color: 							         $font-color-base;
+
+
+// ============================================
+// Forms
+
+$padding-base-vertical: 				    7px;
+$padding-base-horizontal: 				8px;
+
+$input-border: 								          2px solid #e2dfd9;
+$input-border-radius: 					     2px;
+// $input-border-focus:					    $rgba-primary-2;
+
+$input-bg-color: 							          ;
+$input-bg-disabled: 						      ;
+
+$input-font-weight: 						      $font-weight-base;
+$input-font-size: 							        $font-size-base;
+$input-line-height: 						       $line-height-base;
+$input-font-family: 						       $heading-font-family;
+$input-color: 								            $font-color-base;
+$input-color-placeholder: 				  #999999;
+$input-height-base: 						      ;
+
+// ============================================
+// Tables
+
+$table-cell-padding:			   8px;
+$table-condensed-cell-padding:	 $table-cell-padding / 2;
+
+$table-border-color: 						 #ddd;
+
+$table-bg:						 transparent; // overall background-color
+$table-bg-strip:				   #f9f9f9; // for striping
+$table-row-hover:				  #f5f5f5;
+$table-bg-active:				  $table-row-hover;
+
+$table-font-size: 							 $font-size-base;
+$table-line-height:				$line-height-base;
+$table-font-family: 						 $font-family-base;
+
+// ============================================
+// Tabs
+
+$tabs-border-color: 						 #d4e3f0;
+$tabs-label-hover-color: 				   rgba(212,227,240,0.3);
+$tabs-label-hover-border: 				 #e3edf6;
+
+// ============================================

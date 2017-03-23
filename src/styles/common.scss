@@ -1,0 +1,30 @@
+// Sprite
+// @import 'sprite';
+// ============================================
+// External
+@import "normalize/import-now";
+// ============================================
+// Variables
+@import "defaults/variables";
+@import "defaults/mixins";
+// ============================================
+// Modules
+// @import "modules/slider";
+// ============================================
+// Defaults
+@import 'defaults/_grid';
+@import "defaults/typography";
+// @import "defaults/buttons";
+// @import "defaults/forms";
+// @import "defaults/table";
+// @import "defaults/pagination";
+// ============================================
+// Layouts
+@import "layouts/chart";
+@import "layouts/cards";
+// ============================================
+// Pages
+// @import './pages/main-page';
+// ============================================
+// General
+// @import "general/temp";

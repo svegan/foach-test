@@ -1,0 +1,19 @@
+parser: babel-eslint
+
+env:
+  mocha: true
+  es6: true
+  browser: true
+  node: true
+
+extends: 'htmlacademy/es6'
+
+rules:
+  camelcase: [2, { properties: 'never' }]
+  quotes: [2, 'single']
+  no-trailing-spaces: ["error", { "skipBlankLines": true }]
+  no-console: 0
+  new-cap: ["error", {"properties": false}]
+
+globals:
+    require: true

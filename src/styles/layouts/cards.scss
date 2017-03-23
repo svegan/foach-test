@@ -1,0 +1,52 @@
+.cards{
+  padding-top: 5rem;
+}
+
+$margin-bottom: 1rem;
+$animation-offset: .5rem;
+
+.card{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex: 1;
+  flex-basis: auto;
+  margin: 0;
+  margin-bottom: $margin-bottom;
+  background-color: #ecebec;
+  overflow: hidden;
+  transition: padding 200ms linear, margin 200ms linear;
+  &:hover{
+    padding: $animation-offset;
+    margin: -$animation-offset;
+    margin-bottom: $margin-bottom - $animation-offset;
+  }
+}
+
+.card_list{
+  flex-direction: row;
+  .card__desk{
+    flex-basis: 55%;
+    order: -1;
+  }
+  .card__img{
+    flex-basis: 45%;
+    width: auto; // IE11
+    margin-left: 0;
+  }
+}
+
+.card__img{
+  display: block;
+  width: 106%;
+  margin: -$animation-offset;
+  height: auto;
+}
+
+.card__desk{
+  padding: 2rem 1rem 1rem;
+}
+
+.card__header{
+  font: 1.2rem $BebasNeueReg;
+}

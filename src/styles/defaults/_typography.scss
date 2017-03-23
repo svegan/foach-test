@@ -1,0 +1,177 @@
+@font-face {
+	font-family: 'OpenSansRegular';
+	src: url('#{$fontPath}OpenSans-Regular-webfont.eot');
+	src: url('#{$fontPath}OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontPath}OpenSans-Regular-webfont.woff') format('woff'),
+		url('#{$fontPath}OpenSans-Regular-webfont.ttf') format('truetype'),
+		url('#{$fontPath}OpenSans-Regular-webfont.svg#open_sansregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'OpenSansBold';
+	src: url('#{$fontPath}OpenSans-Bold-webfont.eot');
+	src: url('#{$fontPath}OpenSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontPath}OpenSans-Bold-webfont.woff') format('woff'),
+		url('#{$fontPath}OpenSans-Bold-webfont.ttf') format('truetype'),
+		url('#{$fontPath}OpenSans-Bold-webfont.svg#open_sansbold') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'BebasNeueRegular';
+	src: url('#{$fontPath}BebasNeueRegular.eot');
+	src: url('#{$fontPath}BebasNeueRegular.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontPath}BebasNeueRegular.woff') format('woff'),
+		url('#{$fontPath}BebasNeueRegular.ttf') format('truetype'),
+		url('#{$fontPath}BebasNeueRegular.svg#open_sansregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'BebasNeueBold';
+	src: url('#{$fontPath}BebasNeueBold.eot');
+	src: url('#{$fontPath}BebasNeueBold.eot?#iefix') format('embedded-opentype'),
+		url('#{$fontPath}BebasNeueBold.woff') format('woff'),
+		url('#{$fontPath}BebasNeueBold.ttf') format('truetype'),
+		url('#{$fontPath}BebasNeueBold.svg#open_sansregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+// ====================================
+// Text
+html{
+	font-size:$font-size-base;
+	line-height:$line-height-base;
+	font-family:$font-family-base;
+	color:$font-color-base;
+	@include phone {
+    font-size: $font-size-base * 0.6;
+  }
+  @include tabletsm {
+    font-size: $font-size-base * 0.8;
+  }
+  @include tabletlg {
+    font-size: $font-size-base * 0.9;
+  }
+}
+
+p{
+	margin-top: 0;
+	margin-bottom: 16px;
+	text-align: justify;
+}
+
+// ====================================
+// Links
+a{
+	font-size:$link-font-size;
+	font-family:$heading-font-family;
+	color: $link-font-color;
+	text-decoration: underline;
+
+	&:hover{
+		text-decoration: none;
+		color: $font-color-base;
+	}
+	&:active,&.active{
+		font-weight: normal;
+		color: $link-font-color;
+	}
+	&:focus{
+		outline: 1px doted $link-font-color;
+	}
+}
+
+// ====================================
+// Heading
+
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
+
+	margin:0;
+
+	font-weight:$heading-font-weight;
+	line-height: $heading-line-height;
+	font-family:$heading-font-family;
+	color:$heading-font-color;
+	text-transform: uppercase;
+}
+
+h1,.h1{
+	margin-bottom: 10px;
+	font-size:$h1-font-size;
+	// line-height: $h1-line-height;
+}
+h2,.h2{
+	margin-bottom: 28px;
+	font-size:$h2-font-size;
+	// line-height: $h2-line-height;
+}
+h3,.h3{
+	margin-bottom: 10px;
+	font-size:$h3-font-size;
+	// line-height: $h3-line-height;
+}
+h4,.h4{
+	margin-bottom: 0;
+	font-size:$h4-font-size;
+	// line-height: $h4-line-height;
+}
+.h5,.h6{
+	margin-bottom: 30px;
+}
+
+// ====================================
+// Font-sizes
+
+.fz-13{
+	font-size:13px !important;
+}
+
+.fz-14{
+	font-size:14px !important;
+}
+
+.fz-15{
+	font-size:15px !important;
+}
+
+.fz-16{
+	font-size:16px !important;
+}
+
+.fz-17{
+	font-size:17px !important;
+}
+
+.fz-18{
+	font-size:18px !important;
+}
+
+.fz-20{
+	font-size:20px !important;
+}
+
+.fz-24{
+	font-size:24px !important;
+}
+
+.fz-64{
+	font-size:64px !important;
+}
+
+// ====================================
+// Font-aligns
+.ta-c{text-align: center;}
+.ta-l {text-align: left;}
+.ta-r {text-align: right;}
+
+// ====================================
+// Colors
+.text-yellow{
+	color:$yellow;
+}
